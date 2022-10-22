@@ -1,4 +1,5 @@
 All input PDB chains, DSSP, FASTA, PSSM, and ESM2 files should be inside `input/` directory
+
 All distance maps should be inside `distmaps/`
 
 Target list: `input.list`
