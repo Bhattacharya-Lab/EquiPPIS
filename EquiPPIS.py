@@ -141,6 +141,9 @@ if __name__ == '__main__':
     print("*  E(3)-equivariant graph neural network for PPI sites prediction            *")
     print("*         For comments, please email to dbhattacharya@vt.edu                 *")
     print("******************************************************************************\n")
+    
+    print('PPI sites prediction probablity threshold is set to 0.18')
+    print('Residie-level predictions for each target is being saved at ' + PARS.outdir + '\n') 
 
 
     seed = 1992 
