@@ -41,9 +41,10 @@ We give an example of running EquiPPIS on several targets as follows.
 
 The PPI sites predictions are generated at `output/`. 
 
-EquiPPIS is very fast. On average it takes a fraction of second on a single core to run EquiPPIS for a target using processed features. However, the running time depends on the sequence length of the target protein. For longer targets, it may take a few seconds to complete.
+EquiPPIS is very fast. On average it takes a fraction of second on a single core to run EquiPPIS for a target using processed features. However, the running time depends on the sequence length of the target protein. 
+## Model
 
-## Data and Model
+Trained model for EquiPPIS can be found [here](Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt)
 
 ## Cite
 
