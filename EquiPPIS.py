@@ -83,12 +83,14 @@ def print_usage():
     print("  --model MODEL         String name of model")
     print("  --model_state_dict MODEL_STATE_DICT")
     print("                        Saved model")
+    print("  --input INPUT_PATH")
+    print("                        Path to input data")
     print("  --outdir OUTDIR       Prediction output directory")
     print("                        Number of data loader workers")
 
 
 def main(PARS):
-    dataset = buildGraph()
+    dataset = buildGraph(path=PARS.path)
     inference_loader = GraphDataLoader(dataset, batch_size=1, shuffle=False)
     # Get Model
     model = EGNN(in_node_nf=118, hidden_nf=256, out_node_nf=1, in_edge_nf=1, n_layers=10,
@@ -102,14 +104,15 @@ def main(PARS):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('--model', type=str, default='EGNN',
             help="String name of model")
-    parser.add_argument('--model_state_dict', type=str, default=None,
+    parser.add_argument('--model_state_dict', type=str, default='Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt',
             help="Saved model")
-    parser.add_argument('--outdir', type=str, default='',
+    parser.add_argument('--outdir', type=str, default='output/',
             help="Prediction output directory")
+    parser.add_argument('--input', type=str, default='Preprocessing/', help="Path to input data containing distance maps and input features")
     parser.add_argument('--num_workers', type=int, default=4,
             help="Number of data loader workers")
     PARS, _ = parser.parse_known_args()
@@ -143,7 +146,7 @@ if __name__ == '__main__':
     print("******************************************************************************\n")
     
     print('PPI sites prediction probablity threshold is set to 0.18')
-    print('Residie-level predictions for each target is being saved at ' + PARS.outdir + '\n') 
+    print('Residue-level predictions for each target is being saved at ' + PARS.outdir + '\n') 
 
 
     seed = 1992 

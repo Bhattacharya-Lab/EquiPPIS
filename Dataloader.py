@@ -16,17 +16,17 @@ import json
 import random
 class buildGraph(DGLDataset):
     #node_feature_size = 118
-    def __init__(self):
+    def __init__(self, path):
+        self.path = path
         super().__init__(name='buildgraph')
-
 
     def process(self):
         self.data_feats = []
-        testlist = 'Preprocessing/input.list' 
+        testlist = f'{self.path}/input.list' 
         
         node_feat_dir = 'Preprocessing/processed_features/'
-        edge_dir = 'Preprocessing/distmaps/'
-        node_xyz_dir = 'Preprocessing/input/'
+        edge_dir = f'{self.path}/distmaps/'
+        node_xyz_dir = f'{self.path}/input/'
         f = open(testlist, 'r')
         flines = f.readlines()
         f.close()
