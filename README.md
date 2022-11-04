@@ -37,7 +37,7 @@ options:
 
 We give an example of running EquiPPIS on several targets as follows.
 
-- First preprocess input data to generate features [here](Preprocessing/)
+- For preprocessing data, all input targets should be listed in `Preprocessing/input.list`, input files should be inside `Preprocessing/input/` and input distance maps should be inside `Preprocessing/distmaps/`. A detailed preprocessing instructions can be found [here](Preprocessing/)
 - Make an output directory `mkdir output`
 - Run `python EquiPPIS.py --model_state_dict Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt --outdir output/`
 
