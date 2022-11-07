@@ -10,6 +10,7 @@ parser=optparse.OptionParser()
 parser.add_option('-t', dest='t',
         default= '',    #default empty!
         help= 'target list')
+parser.add_option('-i', dest='i', default='input', help= 'path to input features')
 (options,args) = parser.parse_args()
 target = options.t
 def sigmoid(x):
@@ -30,7 +31,7 @@ for line in flines:
                 pdbsincosangle = np.load('tmp//' + name +'.feat_angle6.npy')
                 pdbforwrevca = np.load('tmp//' +  name +'.feat_forw_rev_ca6.npy')
                 pdbimputed = np.load('tmp//' + name +'.imputed3.npy')
-                esm2feat = np.load('input/' + name + '.esm2_33.npy')
+                esm2feat = np.load(f'{options.i}/' + name + '.esm2_33.npy')
 
                 feat33 = sigmoid(esm2feat[0][1:-1])
 
