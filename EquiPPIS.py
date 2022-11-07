@@ -42,14 +42,13 @@ def to_np(x):
 def test_epoch(epoch, model, dataloader, PARS):
     model.eval()
 
-    rloss = 0
     for i, (data_feats) in enumerate(dataloader):
         (tgt_name, nodeFeats, xyz_feats, edges, edge_att) = data_feats
         tgt_name  = tgt_name[0]
         #print(tgt_name)
         print('running ' + tgt_name + ' ...')
-        n_nodes = len(nodeFeats[0])
-        n_e = len(edges[0])
+        #n_nodes = len(nodeFeats[0])
+        #n_e = len(edges[0])
         nodeFeats = nodeFeats.to(PARS.device)
         xyz_feats = xyz_feats.to(PARS.device)
         edges[0] = edges[0].to(PARS.device)
@@ -80,23 +79,22 @@ def print_usage():
 
     print("Options:")
     print("  -h, --help            show this help message and exit")
-    print("  --model MODEL         String name of model")
+    print("  --model MODEL         String name of model (default 'EGNN')")
     print("  --model_state_dict MODEL_STATE_DICT")
     print("                        Saved model")
-    print("  --input INPUT_PATH")
-    print("                        Path to input data")
+    print("  --indir INDIR         Path to input data containing distance maps and input features (default 'Preprocessing/')")
     print("  --outdir OUTDIR       Prediction output directory")
     print("                        Number of data loader workers")
+    print("  --num_workers NUM_WORKERS")
+    print("                        Number of data loader workers (default=4)")
 
 
 def main(PARS):
-    dataset = buildGraph(path=PARS.path)
+    dataset = buildGraph(path=PARS.indir)
     inference_loader = GraphDataLoader(dataset, batch_size=1, shuffle=False)
     # Get Model
     model = EGNN(in_node_nf=118, hidden_nf=256, out_node_nf=1, in_edge_nf=1, n_layers=10,
              attention=True)
-    if not PARS.model_state_dict:
-        print("PARS.model_state_dict file must be set")
     model.load_state_dict(torch.load(PARS.model_state_dict))
     model.to(PARS.device)
 
@@ -104,17 +102,18 @@ def main(PARS):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser = argparse.ArgumentParser()
 
     parser.add_argument('--model', type=str, default='EGNN',
-            help="String name of model")
-    parser.add_argument('--model_state_dict', type=str, default='Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt',
+            help="String name of model (default 'EGNN')")
+    parser.add_argument('--model_state_dict', type=str, default=None,
             help="Saved model")
-    parser.add_argument('--outdir', type=str, default='output/',
+    parser.add_argument('--indir', type=str, default='Preprocessing/',
+            help="Path to input data containing distance maps and input features (default 'Preprocessing/')")
+    parser.add_argument('--outdir', type=str, default='',
             help="Prediction output directory")
-    parser.add_argument('--input', type=str, default='Preprocessing/', help="Path to input data containing distance maps and input features")
     parser.add_argument('--num_workers', type=int, default=4,
-            help="Number of data loader workers")
+            help="Number of data loader workers (default=4)")
     PARS, _ = parser.parse_known_args()
 
     #basic input check
@@ -132,6 +131,10 @@ if __name__ == '__main__':
         print('Error! No such trained model exists. Exiting ...')   
         print_usage()
         sys.exit()
+    if not os.path.exists(PARS.indir):
+        print('Error! No such input directory exists. Exiting ...')
+        print_usage()
+        sys.exit()
     if not os.path.exists(PARS.outdir):
         print('Error! No such output directory exists. Exiting ...')
         print_usage()
@@ -146,7 +149,7 @@ if __name__ == '__main__':
     print("******************************************************************************\n")
     
     print('PPI sites prediction probablity threshold is set to 0.18')
-    print('Residue-level predictions for each target is being saved at ' + PARS.outdir + '\n') 
+    print('Residie-level predictions for each target is being saved at ' + PARS.outdir + '\n') 
 
 
     seed = 1992 
