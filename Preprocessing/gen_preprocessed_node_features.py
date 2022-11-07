@@ -10,7 +10,7 @@ parser=optparse.OptionParser()
 parser.add_option('-t', dest='t',
         default= '',    #default empty!
         help= 'target list')
-parser.add_option('-i', dest='i', default='Preprocessing/input', help= 'path to input features')
+parser.add_option('-i', dest='i', default='input', help= 'path to input features')
 (options,args) = parser.parse_args()
 target = options.t
 def sigmoid(x):
