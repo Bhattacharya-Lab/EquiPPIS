@@ -22,26 +22,28 @@ That's it! EquiPPIS is ready to be used.
 To see usage instructions, run `python EquiPPIS.py -h`
 
 ```
-usage: EquiPPIS.py [-h] [--model MODEL] [--model_state_dict MODEL_STATE_DICT] [--outdir OUTDIR] [--num_workers NUM_WORKERS]
+usage: EquiPPIS.py [-h] [--model MODEL] [--model_state_dict MODEL_STATE_DICT] [--indir INDIR] [--outdir OUTDIR] [--num_workers NUM_WORKERS]
 
 options:
   -h, --help            show this help message and exit
-  --model MODEL         String name of model
+  --model MODEL         String name of model (default 'EGNN')
   --model_state_dict MODEL_STATE_DICT
                         Saved model
+  --indir INDIR         Path to input data containing distance maps and input features (default 'Preprocessing/')
   --outdir OUTDIR       Prediction output directory
   --num_workers NUM_WORKERS
-                        Number of data loader workers
+                        Number of data loader workers (default=4)
 
 ```
 
+
 We give an example of running EquiPPIS on several targets as follows.
 
-- For preprocessing data, all input targets should be listed in `Preprocessing/input.list`, input files should be inside `Preprocessing/input/` and input distance maps should be inside `Preprocessing/distmaps/`. A detailed preprocessing instructions can be found [here](Preprocessing/)
+- Input target list, distance maps and input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
 - Make an output directory `mkdir output`
-- Run `python EquiPPIS.py --model_state_dict Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt --outdir output/`
+- Run `python EquiPPIS.py --model_state_dict Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt --indir Preprocessing/ --outdir output/`
 
-The PPI sites predictions are generated at `output/`. 
+The residue-level PPI sites predictions are generated at `output/`. 
 
 EquiPPIS is very fast. On average it takes a fraction of second on a single core to run EquiPPIS for a target using processed features. However, the running time depends on the sequence length of the target protein. 
 ## Model
