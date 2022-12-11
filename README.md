@@ -41,14 +41,14 @@ We give an example of running EquiPPIS on several targets as follows.
 
 - Input target list, distance maps and input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
 - Make an output directory `mkdir output`
-- Run `python EquiPPIS.py --model_state_dict Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt --indir Preprocessing/ --outdir output/`
+- Run `python EquiPPIS.py --model_state_dict Trained_model/EquiPPIS_model/E-l10-256.pt --indir Preprocessing/ --outdir output/`
 
 The residue-level PPI sites predictions are generated at `output/`. 
 
 EquiPPIS is very fast. On average it takes a fraction of second on a single core to run EquiPPIS for a target using processed features. However, the running time depends on the sequence length of the target protein. 
 ## Model
 
-Trained model for EquiPPIS can be found [here](Trained_model/335_118_256hf_10l_14dist_epoch50_lr1e_4/E-l10-256.pt)
+Trained model for EquiPPIS can be found [here](Trained_model/EquiPPIS_model/E-l10-256.pt)
 
 ## Cite
 
