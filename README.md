@@ -42,7 +42,7 @@ options:
 ```
 Here is an example of running EquiPPIS:
 
-(1) Input target list, distance maps and input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
+(1) Input target list and all input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
 
 (2) Make an output directory `mkdir output`
 
