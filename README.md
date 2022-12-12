@@ -6,7 +6,7 @@ by Rahmatullah Roche, Bernard Moussad, Md Hossain Shuvo, Debswapna Bhattacharya
 
 Codebase for equivariant graph neural network (EquiPPIS) and experiments in the paper.
 
-![Workflow](./IMG/Fig1.png)
+![Workflow](./EquiPPIS.tif)
 
 ## Installation
 We recommend conda virtual environment to install dependencies for EquiPPIS. The following command will create a virtual environment named 'EquiPPIS'
