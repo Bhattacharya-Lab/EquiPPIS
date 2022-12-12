@@ -6,6 +6,8 @@ by Rahmatullah Roche, Bernard Moussad, Md Hossain Shuvo, Debswapna Bhattacharya
 
 Codebase for our E(3) equivariant graph neural network approach for PPI site prediction, EquiPPIS.
 
+<b>Disclaimer:</b> This repo and our paper are still a work in progress.
+
 ![Workflow](./EquiPPIS.png)
 
 ## Installation
@@ -49,5 +51,3 @@ Here is an example of running EquiPPIS:
 (3) Run `python EquiPPIS.py --model_state_dict Trained_model/EquiPPIS_model/E-l10-256.pt --indir Preprocessing/ --outdir output/`
 
 (4) The residue-level PPI site predictions are generated at `output/`. 
-
-<b>Disclaimer:</b> This repo and our paper are still a work in progress.
