@@ -1,9 +1,18 @@
-# EquiPPIS
+# E(3) equivariant graph neural networks for robust and accurate protein–protein interaction site prediction
+
+by Rahmatullah Roche, Bernard Moussad, Md Hossain Shuvo, Debswapna Bhattacharya
+
+[bioRxiv][pdf]
+
+Codebase for equivariant graph neural network (EquiPPIS) and experiments in the paper.
 
 ![Concept_Diagram](./IMG/Fig1.png)
 
-## Abstract
-The knowledge of protein-protein interaction provides a crucial steppingstone to drug design and discovery. To mitigate the cost and time consumed by experimental methods for protein-protein interaction site determination, many computational prediction methods have been developed leveraging the recent progress made in machine learning. However, sequence-based prediction methods suffer from the lack of structural information, while structural-based prediction methods with superior performance become impractical in short of experimentally determined monomeric structures that are taken as input. Here we present EquiPPIS, a deep E(3)-equivariant graph neural network capable of learning a more meaningful representation from structural information, that results in a robust model scalable to utilize predicted structures, bridging the gap between sequence-and structure-based methods. In addition, we propose a feature set introducing several novel features; and with reduced computational overhead by avoiding multiple sequence alignment. In a widely used benchmarking dataset, EquiPPIS outperforms the existing state-of-the-art methods by a large margin.
+## Dependencies
+<ul>
+<li>PyTorch</li>
+<li>PyTorch</li>
+</ul>
 
 
 ## Installation
@@ -14,6 +23,8 @@ We recommend conda virtual environment to install dependencies for EquiPPIS. The
 Then activate the virtual environment
 
 `conda activate EquiPPIS`
+
+Download the trained model for EquiPPIS [here](Trained_model/EquiPPIS_model/E-l10-256.pt)
 
 That's it! EquiPPIS is ready to be used.
 
@@ -35,8 +46,6 @@ options:
                         Number of data loader workers (default=4)
 
 ```
-
-
 We give an example of running EquiPPIS on several targets as follows.
 
 - Input target list, distance maps and input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
@@ -45,10 +54,4 @@ We give an example of running EquiPPIS on several targets as follows.
 
 The residue-level PPI sites predictions are generated at `output/`. 
 
-EquiPPIS is very fast. On average it takes a fraction of second on a single core to run EquiPPIS for a target using processed features. However, the running time depends on the sequence length of the target protein. 
-## Model
-
-Trained model for EquiPPIS can be found [here](Trained_model/EquiPPIS_model/E-l10-256.pt)
-
-## Cite
-
+<b>Coming Soon:</b> More experiments and/or improved implementation of our method! This repo and our paper are still a work in progress.
