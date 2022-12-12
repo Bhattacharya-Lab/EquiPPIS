@@ -12,15 +12,15 @@ Codebase for our E(3) equivariant graph neural network approach for PPI site pre
 
 ## Installation
 
-(1) We recommend conda virtual environment to install dependencies for EquiPPIS. The following command will create a virtual environment named 'EquiPPIS'
+1.) We recommend conda virtual environment to install dependencies for EquiPPIS. The following command will create a virtual environment named 'EquiPPIS'
 
 `conda env create -f EquiPPIS_environment.yml`
 
-(2) Then activate the virtual environment
+2.) Then activate the virtual environment
 
 `conda activate EquiPPIS`
 
-(3) Download the trained model for EquiPPIS [here](Trained_model/EquiPPIS_model/E-l10-256.pt)
+3.) Download the trained model for EquiPPIS [here](Trained_model/EquiPPIS_model/E-l10-256.pt)
 
 That's it! EquiPPIS is ready to be used.
 
@@ -44,10 +44,10 @@ options:
 ```
 Here is an example of running EquiPPIS:
 
-(1) Input target list and all input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
+1.) Input target list and all input files should be inside input preprocessing directory (default `Preprocessing/`). A detailed preprocessing instructions can be found [here](Preprocessing/)
 
-(2) Make an output directory `mkdir output`
+2.) Make an output directory `mkdir output`
 
-(3) Run `python EquiPPIS.py --model_state_dict Trained_model/EquiPPIS_model/E-l10-256.pt --indir Preprocessing/ --outdir output/`
+3.) Run `python EquiPPIS.py --model_state_dict Trained_model/EquiPPIS_model/E-l10-256.pt --indir Preprocessing/ --outdir output/`
 
-(4) The residue-level PPI site predictions are generated at `output/`. 
+4.) The residue-level PPI site predictions are generated at `output/`. 
