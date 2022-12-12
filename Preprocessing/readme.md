@@ -12,6 +12,6 @@ Target list: `input.list`
 
 `python genpssmto20feat.py  -i input -o tmp/ -t input.list`
 
-3. Run `gen_preprocessed_node_features.py` to get combined (1D) 118xL features generated in `processed_features/` directory
+3. Run `gen_preprocessed_node_features.py` to get combined features generated in `processed_features/` directory
 
 `python gen_preprocessed_node_features.py -t input.list`
