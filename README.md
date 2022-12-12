@@ -48,6 +48,6 @@ Here is an example of running EquiPPIS:
 
 (3) Run `python EquiPPIS.py --model_state_dict Trained_model/EquiPPIS_model/E-l10-256.pt --indir Preprocessing/ --outdir output/`
 
-(4) The residue-level PPI sites predictions are generated at `output/`. 
+(4) The residue-level PPI site predictions are generated at `output/`. 
 
-<b>Coming Soon:</b> More experiments and/or improved implementation of our method! This repo and our paper are still a work in progress.
+<b>Disclaimer:</b> This repo and our paper are still a work in progress.
