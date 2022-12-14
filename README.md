@@ -2,7 +2,6 @@
 
 by Rahmatullah Roche, Bernard Moussad, Md Hossain Shuvo, Debswapna Bhattacharya
 
-[bioRxiv][pdf]
 
 Codebase for our E(3) equivariant graph neural network approach for PPI site prediction, EquiPPIS.
 
