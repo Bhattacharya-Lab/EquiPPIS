@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-#  EquiPPIS: E(3)-Equivariant Graph Neural Network for Robust PPI sites prediction
+#  EquiPPIS: E(3) equivariant graph neural network for PPI site prediction
 #
 #  Copyright (C) Bhattacharya Laboratory 2022
 #
@@ -15,7 +15,7 @@
 #  GNU General Public License for more details.
 #
 #  You should have received a copy of the GNU General Public License
-#  along with ProXiGram.  If not, see <http://www.gnu.org/licenses/>.
+#  along with EquiPPIS.  If not, see <http://www.gnu.org/licenses/>.
 #
 ############################################################################
 
@@ -144,7 +144,7 @@ if __name__ == '__main__':
 
     print("\n******************************************************************************")
     print("*                          EquiPPIS                                          *")
-    print("*  E(3)-equivariant graph neural network for PPI sites prediction            *")
+    print("*   E(3) equivariant graph neural network for PPI site prediction            *")
     print("*         For comments, please email to dbhattacharya@vt.edu                 *")
     print("******************************************************************************\n")
     
